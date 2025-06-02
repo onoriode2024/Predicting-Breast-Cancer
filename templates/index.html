@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/style.css"> 
+    <link rel="icon" type="image/x-icon" href="static/logo_tr.png">
+    <title>Breast Cancer Prediction Model</title>
+    <style>
+      div {
+        background-image: url('static/bg1.png');
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container_main">
+      <div class="sub_container" id="holder">
+        <table>
+          <tr>
+            <td><img src="static/logo2.jpg" alt="tries" width="185" height="129"></td>
+            <td><center><h1 class="main_heading">Breast Cancer Prediction Model</h1></center></td>
+          </tr>
+        </table>
+        <hr style="height:3px;border-width:0;color:gray;background-color:gray">
+        <p>Support Vector Machine model is developed based on 9 features that classify whether the breast cancer is benign or malignant. For classifying the patient, users are requested to submit their data on this following form as per the value range provided in the input placeholder.
+        <b>[Note: For predicted value, please check the footer of the table.]</b></p>
+        <table class="t1">
+          <form class="form-horizontal" action="{{ url_for('predict')}}" method="post">
+            <thead>
+              <tr><th colspan="2"><b><h4>Predictor App</h4></b></th></tr>
+            </thead>
+            <tfoot>
+              <tr><th colspan="2"><center><b><h4>{{ prediction_text}}</h4></b></center></th></tr>
+            </tfoot>
+            <tr>
+              <td><label for="clump_thickness">Clump Thickness:</label></td>
+              <td>
+                <input class="form-control" type="number" step="any" name="clump_thickness" placeholder="Value range: 1 - 10" required="required" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="size_uniformity">Size Uniformity:</label></td>
+              <td>
+                <input class="form-control" type="number" step="any" name="size_uniformity" placeholder="Value range: 1 - 10" required="required" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="shape_uniformity">Shape Uniformity:</label></td>
+              <td>
+                <input class="form-control" type="number" step="any" name="shape_uniformity" placeholder="Value range: 1 - 10" required="required" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="marginal_adhesion">Marginal Adhesion:</label></td>
+              <td>
+                <input class="form-control" type="number" step="any" name="marginal_adhesion" placeholder="Value range: 1 - 10" required="required" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="epithelial_size">Epithelial Size:</label></td>
+              <td>
+                <input class="form-control" type="number" step="any" name="epithelial_size" placeholder="Value range: 1 - 10" required="required" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="bare_nucleoli">Bare Nucleoli:</label></td>
+              <td>
+                <input class="form-control" type="number" step="any" name="bare_nucleoli" placeholder="Value range: 1 - 10" required="required" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="bland_chromatin">Bland Chromatin:</label></td>
+              <td>
+                <input class="form-control" type="number" step="any" name="bland_chromatin" placeholder="Value range: 1 - 10" required="required" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="normal_nucleoli">Normal Nucleoli:</label></td>
+              <td>
+                <input class="form-control" type="number" step="any" name="normal_nucleoli" placeholder="Value range: 1 - 10" required="required" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="mitoses">Mitoses:</label></td>
+              <td>
+                <input class="form-control" type="number" step="any" name="mitoses" placeholder="Value range: 1 - 10" required="required" />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"><button type="submit" class="btnsub">PREDICT</button></td>
+            </tr>
+          </form>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
